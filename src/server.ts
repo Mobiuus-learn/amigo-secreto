@@ -6,7 +6,7 @@ import https from 'https'
 import http from  'http';
 
 import siteRoutes from './routes/site'
-import adminRoutes from './routes/adminRoutes'
+import adminRoutes from './routes/admin'
 
 const app = express();
 app.use(cors())
