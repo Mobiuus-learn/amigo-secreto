@@ -7,9 +7,9 @@ export const validatePassword = (password: string): boolean =>  {
 }
 
 export const createToken = () =>{
-  const currentPassword = getToday().split('/').join('')
+  const currentDate = getToday().split('/').join('')
 
-  return `${process.env.DEFAULT_TOKEN}${currentPassword}`
+  return `${process.env.DEFAULT_TOKEN}${currentDate}`
 }
 
 export const validateToken =(token: string): boolean =>{
