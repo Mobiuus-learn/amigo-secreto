@@ -14,7 +14,6 @@ export const getAllGroups: RequestHandler = async (req, res) =>{
 
 export const getGroup: RequestHandler = async (req, res) =>{
   const {id_event, id} = req.params
-  console.log(id_event, id)
 
   const item = await groups.getGroup({
     id: parseInt(id),
