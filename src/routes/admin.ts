@@ -31,7 +31,7 @@ router.delete('/events/:id_event/groups/:id', auth.validate, groups.deleteGroup)
 
 // People routers
 
-router.get('/events/:id_event/groups/:id_group/people', auth.validate, people.getAllPeople)
+router.get('/events/:id_event/groups/:id_group/people', auth.validate, people.getAll)
 router.get('/events/:id_event/groups/:id_group/people/:id', auth.validate, people.getPeople)
 router.post('/events/:id_event/groups/:id_group/people', auth.validate, people.addPeople)
 router.put('/events/:id_event/groups/:id_group/people/:id', auth.validate, people.updatePeople)

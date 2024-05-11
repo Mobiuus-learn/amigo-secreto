@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { set, z } from "zod";
+import { z } from "zod";
 
 import * as auth from "../services/auth";
 
@@ -15,9 +15,9 @@ export const login: RequestHandler = (req, res) => {
   if (!auth.validatePassword(body.data.password)) {
     return res.status(403).json({ error: "Acesso Negado" });
   }
-  const token = auth.createToken();
+  const token =  auth.createToken();
 
-  // res.set("Authorization", `Bearer ${token}`);
+  res.set("Authorization", `Bearer ${token}`);
 
   res.json({ token: token});
     

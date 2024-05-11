@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export const getAllGroups = async (idEvent: number) => {
+export const getAllGroups = async (id_event: number) => {
   try {
     return await prisma.eventGroup.findMany({
       where: {
-        id_event: idEvent,
+        id_event: id_event,
       },
     });
   } catch (error) {
@@ -53,6 +53,7 @@ export const updateGroup = async (
   } catch (error) {
     return false;
   }
+  
 };
 
 export const deleteGroup = async (id: number) => {

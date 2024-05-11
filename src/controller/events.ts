@@ -1,6 +1,7 @@
 import { RequestHandler } from "express";
 import { z } from "zod";
 import * as events from "../services/events";
+import * as people from "../services/people";
 
 export const getAll: RequestHandler = async (req, res) => {
   const items = await events.getAll();
@@ -56,10 +57,14 @@ export const updateEvent: RequestHandler = async (req, res) => {
 
   if (updatedEvent) {
     if(updatedEvent.status){
-      //TODO fazer o sorteio
-    }else{
-      //TODO remover o sorteio
+      const result = await events.doMatchs(parseInt(id))
 
+      if(!result) {
+        return res.json({ error: "Grupos impossiveis de realizar o sorteio" })
+      }
+
+    }else{
+      await people.updatePeople({id_event: parseInt(id)}, { matched: '' })
 
     }
     

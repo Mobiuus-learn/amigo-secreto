@@ -1,0 +1,1 @@
+- o evento e o grupo devem ser o mesmo para que a  pessoa possa ser criada

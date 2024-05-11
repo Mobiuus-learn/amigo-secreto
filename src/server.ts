@@ -2,7 +2,6 @@ import { requestInterceptor } from './utils/requestInterceptor';
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import https from 'https'
 import http from  'http';
 
 import siteRoutes from './routes/site'
@@ -13,7 +12,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-app.all('*', requestInterceptor)
+app.use(requestInterceptor)
 
 app.use('/admin', adminRoutes)
 app.use('/', siteRoutes)
