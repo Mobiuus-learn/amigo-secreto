@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import * as people from "./people";
-import * as group from "./groups";
+import { encriptMatch } from "../utils/match";
 
 const prisma = new PrismaClient();
 
@@ -95,16 +95,15 @@ export const doMatchs = async (id: number): Promise<boolean> => {
 				}
 			}
 
-			console.log(`ATTEMPTS ${attempts}`);
-			console.log(`MAX ATTEMPTS ${maxAttempts}`);
-			console.log(sortedList);
-
-			// if (attempts < maxAttempts) {
-			// 	for (let i in sortedList) {
-			// 		await people.updatePeople({ id: sortedList[i].id, id_event: id }, { matched: "" }); // TODO : criar encripted match
-			// 	}
-			//   return true
-			// }
+			if (attempts < maxAttempts) {
+				for (let i in sortedList) {
+					await people.updatePeople(
+						{ id: sortedList[i].id, id_event: id },
+						{ matched: encriptMatch(sortedList[i].match) }
+					);
+				}
+				return true;
+			}
 		}
 	}
 
