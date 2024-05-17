@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 import https from "https";
 import http from "http";
-import fs from "fs";
+import fs from "node:fs";
 
 import siteRoutes from "./routes/site";
 import adminRoutes from "./routes/admin";
