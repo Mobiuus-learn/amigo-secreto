@@ -2,8 +2,8 @@ import { requestInterceptor } from "./utils/requestInterceptor";
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import https from "https";
-import http from "http";
+import https from "node:https";
+import http from "node:http";
 import fs from "node:fs";
 
 import siteRoutes from "./routes/site";
