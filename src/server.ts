@@ -1,7 +1,8 @@
 import { requestInterceptor } from "./utils/requestInterceptor";
 import "dotenv/config";
 import express from "express";
-import cors from "cors";
+// import cors from "cors";
+const cors = require("cors");
 import https from "node:https";
 import http from "node:http";
 import fs from "node:fs";
